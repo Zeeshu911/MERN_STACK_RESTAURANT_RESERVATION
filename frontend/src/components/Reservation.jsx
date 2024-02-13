@@ -18,7 +18,7 @@ const Reservation = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "https://confused-deer-swimsuit.cyclic.app/reservation/send",
+        "https://mern-stack-restaurant-reservation-backend/reservation/send",
         { firstName, lastName, email, phone, date, time },
         {
           headers: {
