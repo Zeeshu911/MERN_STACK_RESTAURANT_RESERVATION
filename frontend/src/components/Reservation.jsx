@@ -18,7 +18,7 @@ const Reservation = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "https://mern-stack-restaurant-reservation-backend/reservation/send",
+        "http://localhost:4000/reservation/send",
         { firstName, lastName, email, phone, date, time },
         {
           headers: {
