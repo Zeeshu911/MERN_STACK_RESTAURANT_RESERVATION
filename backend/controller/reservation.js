@@ -26,5 +26,12 @@ const send_reservation = async (req, res, next) => {
   }
 };
 
+const getRequest = async(req,res,next)=>{
+  res.status(200).json({
+    success: true,
+    message: "GET REQUEST WORKING"
+  })
+}
+
 export default send_reservation;
 
