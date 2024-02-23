@@ -1,14 +1,17 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
 
-export const dbConnection = () => {
-  mongoose
-    .connect(process.env.MONGO_URI, {
+const connectToDatabase = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI, {
       dbName: "RESERVATIONS",
-    })
-    .then(() => {
-      console.log("Connected to database!");
-    })
-    .catch((err) => {
-      console.log(`Some error occured while connecing to database: ${err}`);
     });
+    console.log("Connected to database!");
+  } catch (error) {
+    console.error(`Error connecting to database: ${error.message}`);
+    // Optionally, you can rethrow the error here if you want the calling code to handle it.
+    // throw error;
+  }
 };
+
+module.exports = connectToDatabase;
+
